@@ -49,10 +49,17 @@ class AuthMock(BaseHTTPRequestHandler):
             pass
 
 
+class AuthTestServer(ThreadingHTTPServer):
+    # The default backlog (5 on Python 3.11/3.12) can drop connection bursts
+    # from the 20-worker test before their handler threads are started.
+    # Keep the mock from becoming the bottleneck; production timeouts stay intact.
+    request_queue_size = 128
+
+
 class Integration(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.mock = ThreadingHTTPServer(("localhost", 0), AuthMock)
+        cls.mock = AuthTestServer(("localhost", 0), AuthMock)
         cls.thread = threading.Thread(target=cls.mock.serve_forever, daemon=True)
         cls.thread.start()
 
