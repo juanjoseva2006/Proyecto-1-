@@ -1,0 +1,11 @@
+name: C y Python - pruebas de integracion
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y build-essential pkg-config libcurl4-openssl-dev libjson-c-dev python3
+      - run: make test
