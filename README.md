@@ -12,9 +12,14 @@ cinco muestras y cinco eventos por nodo, perfiles LECTOR/ADMIN, concurrencia,
 resolución de nombres, reconexión y logs. `make test` ejecuta pruebas de integración
 contra el servidor C usando sockets reales y un proveedor de identidad simulado.
 
-**Pendiente de configuración externa:** crear el proyecto Supabase y las cuentas
-de prueba; seguir [la guía](docs/SUPABASE.md). No hay cuentas ni claves de respaldo
-en el servidor. Las pruebas automatizadas no acreditan una sesión con Supabase real.
+**Supabase configurado y comprobado el 30 de septiembre de 2026:** se inició sesión
+con las cuentas de laboratorio ADMIN y LECTOR contra el proveedor real. La prueba
+manual mostró dos nodos activos, cinco muestras históricas, consulta de eventos
+como ADMIN, rechazo FORBIDDEN como LECTOR y desconexión independiente de nodo1.
+Ver [resultados y alcance de la verificación](docs/VERIFICACION.md).
+Para reproducir la configuración en otro entorno, seguir [la guía](docs/SUPABASE.md).
+No hay cuentas ni claves de respaldo en el servidor. Las pruebas automatizadas
+siguen usando un proveedor simulado, separado de esta comprobación manual real.
 
 ## Preparación (Debian/Ubuntu o Windows con WSL Debian)
 

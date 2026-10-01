@@ -50,10 +50,15 @@ HTTPS sosteniendo el mutex de la tabla: una red lenta no impide actualizar otros
 | Makefile | Compilación gcc C11 estricta y objetivo make test |
 | Especificación completa | docs/PROTOCOLO.md y ejemplos reproducibles en README |
 
-**Configuración externa pendiente:** Supabase y dos cuentas reales. La integración
-está implementada y probada con un servicio HTTP simulado solo en `server-test`.
-El binario normal exige HTTPS. La autenticación real debe comprobarse después de
-configurar el proyecto; no se presenta como verificada.
+**Configuración externa verificada:** el 30 de septiembre de 2026 se configuró
+Supabase y se inició sesión con las cuentas de laboratorio ADMIN y LECTOR desde
+el cliente Python. Las capturas aportadas por el equipo muestran ambos perfiles,
+consultas de estado e históricos y autorización de eventos: ADMIN obtiene datos
+y LECTOR recibe FORBIDDEN. La prueba manual también mostró nodo1 DESCONECTADO
+mientras nodo2 continuaba ACTIVO. Véase [VERIFICACION.md](VERIFICACION.md).
+
+Esta prueba utilizó el proveedor real por HTTPS. La suite automatizada conserva
+un proveedor simulado exclusivo de `server-test`; son verificaciones distintas.
 
 ## Cambios concretos respecto de la propuesta
 
@@ -114,8 +119,10 @@ TCP se limita a una red de laboratorio y claves de prueba, como indicó la propu
 
 ## Lista para entregar por el equipo
 
-1. Configurar Supabase y comprobar ambos perfiles con las cuentas reales.
-2. Ejecutar la demostración y `make test` en el equipo de sustentación.
+1. Supabase y ambos perfiles ya fueron comprobados con el proveedor real; conservar
+   las credenciales de laboratorio y la configuración local para la sustentación.
+2. Repetir la demostración y `make test` en el equipo de sustentación; la prueba
+   manual local ya se realizó y quedó descrita en VERIFICACION.md.
 3. Añadir los nombres reales de integrantes según la presentación requerida.
 4. Verificar que la versión a evaluar esté en GitHub y enviar el enlace en el buzón
    del curso. El enunciado fija el 30 de septiembre de 2026 a las 23:59.

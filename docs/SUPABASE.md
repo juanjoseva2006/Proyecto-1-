@@ -1,7 +1,13 @@
 # Configurar Supabase Auth
 
-Esta parte requiere la cuenta del equipo. El código está integrado, pero no se ha
-creado un proyecto externo ni se han probado credenciales reales en este entorno.
+El equipo configuró el proyecto Monitoreo-proyecto y comprobó la autenticación real
+el 30 de septiembre de 2026. Las cuentas de laboratorio `admin@example.com` (ADMIN)
+y `user@example.com` (LECTOR) están confirmadas y se probaron desde el cliente Python.
+Los correos son identificadores de prueba; no se utilizan para recibir mensajes.
+Los resultados se documentan en [VERIFICACION.md](VERIFICACION.md).
+
+Los pasos siguientes permiten reproducir la configuración. Las contraseñas y la
+configuración local `.env` no se publican en el repositorio.
 
 1. Crear o elegir un proyecto en [Supabase](https://supabase.com/dashboard).
 2. En la configuración del proyecto obtener la URL y una **publishable key**
